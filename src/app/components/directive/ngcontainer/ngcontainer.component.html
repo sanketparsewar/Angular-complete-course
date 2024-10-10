@@ -1,0 +1,87 @@
+<div class="header p-2 mt-2 mb-2 bg-secondary text-white">
+    <h1>ng -container</h1>
+</div>
+
+
+
+<div class="row mt-3">
+    <div class="col-3">
+        <div class="text-center d-flex justify-content-evenly">
+            <button class="btn btn-success " (click)="getAllUser()">show User</button>
+        </div>
+    </div>
+    <div class="col-3">
+        <ng-container *ngIf="isContainer">
+            <p>This is from ng-Container</p>
+        </ng-container>
+    </div>
+    <div class="col-3">
+
+    </div>
+    <div class="col-3">
+        <!-- here *ngTemplateOutlet is a directive -->
+        <!-- we are displaying the ng template content inside the ng container using the directive and passing the referenc of ng-template to it -->
+        <ng-container [ngTemplateOutlet]="myTemp">
+            <p>This is ng container and inside it this below line is rendered from ng-template</p>
+        </ng-container>
+    </div>
+</div>
+<!-- #myTemp is reference of this template -->
+<ng-template #myTemp>
+    <p>Hi from the ng -template</p>
+</ng-template>
+
+
+<div class="row mt-3">
+    <div class="col-6">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>sr.no</th>
+                    <th>Name</th>
+                    <th>username</th>
+                    <th>email</th>
+                </tr>
+            </thead>
+            <tbody class="border-1 text-center">
+                <!-- after button click this ng container is loaded if the data from the api is yet not fetched -->
+                <!-- and as soon as data is received the loading gets stop means this component is removed -->
+                <ng-container *ngIf="isDataFetched">
+                    <tr>
+                        <td colspan="4">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-secondary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-success" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-danger" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-warning" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-info" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-container>
+
+                <ng-container *ngIf="!isDataFetched">
+                    <tr *ngFor="let stud of userData;let srNo = index">
+                        <!-- here we dont want student id we want srNo so we used let srNo = index -->
+                        <!-- sr starts from 0 -->
+                        <td>{{srNo+1}}</td>
+                        <td>{{stud.name}}</td>
+                        <td>{{stud.username}}</td>
+                        <td>{{stud.email}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

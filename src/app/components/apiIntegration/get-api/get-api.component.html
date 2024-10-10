@@ -1,0 +1,40 @@
+<div class="header mt-2 bg-secondary p-3 text-white mb-3">
+    <h1>API Integration</h1>
+    <p>Get api</p>
+</div>
+
+<!-- using alert from other component -->
+<!-- to give vlue to the variabls declared in alert component that is the chid comopnent we have to consider it as property and give the value -->
+<app-alert [alertType]="'success'" [message]="'Hey this is Get Api.'" ></app-alert>
+
+<!-- using button from reusable component -->
+ <!-- for calling the function write the function and for catching any data write $event -->
+  <!-- example (onBtnClick)='getData($event)' and create getData() function in .ts file of parent component-->
+<app-my-button (onBtnClick)="getData($event)" [btnClass]="'mb-3 btn btn-danger'" [btnText]="'show users'"></app-my-button>
+<p>Data from child component - {{dataFromChild}}</p>
+
+<!-- here we have directly called the function of get api component -->
+<!-- <app-my-button (onBtnClick)="getAllUser()" [btnClass]="'mb-3 btn btn-danger'" [btnText]="'show users'"></app-my-button> -->
+
+<div class="row">
+    <div class="col-4 text-center ">
+        <button class="btn btn-primary" (click)="getAllUser()">Get User</button>
+        <button class="btn btn-success ms-3" (click)="getAllCustomer()">Get customer</button>
+    </div>
+    <div class="col-4">
+        <h4>User data fetched from api</h4>
+        <ul>
+            @for(item of userList;track $index){
+            <li>{{item.name}}, {{item.email}}</li>
+            }
+        </ul>
+    </div>
+    <div class="col-4">
+        <h4>Customer data fetched from api</h4>
+        <ol>
+            @for(item of customerList;track $index){
+            <li>{{item.userName}}</li>
+            }
+        </ol>
+    </div>
+</div>
