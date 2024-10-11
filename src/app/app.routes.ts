@@ -17,6 +17,7 @@ import { NgcontainerComponent } from './components/directive/ngcontainer/ngconta
 import { ViewchildComponent } from './components/decorators/viewchild/viewchild.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { authGuard } from './service/auth.guard';
 
 // this is route array containing route object
 export const routes: Routes = [
@@ -41,63 +42,80 @@ export const routes: Routes = [
       {
         path: 'data-binding',
         component: DataBindingComponent,
+        // her for data binding component we are applying the authGuard to avoid from accessing this componen with out login
+        canActivate: [authGuard],
       },
       {
         path: 'emp-list',
         component: EmployeeListComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'structural-dir',
         component: StructuralDirectiveComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'attribute-dir',
         component: AttributeDirectiveComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'if-else',
         component: IfelseComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'for',
         component: ForComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'app-pipe',
         component: PipeComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'app-template',
         component: TemplateComponent,
+        canActivate: [authGuard],
       },
+
       {
         path: 'app-reactive',
         component: ReactiveComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'get-api',
         component: GetApiComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'post-api',
         component: PostApiComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'app-lifecycle',
         component: LifecycleEventComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'ng-template',
         component: NgtemplateComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'ng-container',
         component: NgcontainerComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'view-child',
         component: ViewchildComponent,
-      }
-    ]
+        canActivate: [authGuard],
+      },
+    ],
   },
 ];

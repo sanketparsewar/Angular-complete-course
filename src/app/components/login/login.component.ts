@@ -45,6 +45,7 @@ export class LoginComponent {
             this.router.navigateByUrl('add-emp');
           }
           // stng@gmail.com , 98765
+          // abcde@gmal.com , 1234
         },
         (error) => {
           alert('Login failed');
