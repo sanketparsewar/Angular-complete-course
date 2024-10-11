@@ -71,8 +71,9 @@
           </li>
   
         </ul>
-        <form class="d-flex my-2 my-lg-0">
-          <!-- <input class="form-control me-sm-2" type="text" placeholder="Search" /> -->
+        <form class="d-flex my-2 my-lg-0 align-middle">
+          <!-- <input class="form-control me-sm-2" [value]="" type="text" placeholder="Search" /> -->
+           <span class="align-bottom">{{loggedUser.emailId}}</span>
           <button (click)="onLogOut()" class="btn btn-success my-2 my-sm-0" type="submit">
             LogOut
           </button>

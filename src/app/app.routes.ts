@@ -29,6 +29,7 @@ export const routes: Routes = [
     component: LoginComponent,
   },
   // here we will allow all the other omponents that should be accessible after login
+  // here layout component is parent component and we want to display that
   {
     path: '',
     component: LayoutComponent,
