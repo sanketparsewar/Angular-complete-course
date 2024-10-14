@@ -1,0 +1,27 @@
+<div class="header p-2 mt-2 mb-2 bg-secondary text-white">
+    <h1>Signal</h1>
+    <p>create signal, update, display</p>
+</div>
+<div class="row">
+    <div class="col-3">
+        <!-- to use signal use it as function calling -->
+        <p>auto update the course name after some time period</p>
+        <p>{{firstName()}} - {{courseName()}}</p>
+    </div>
+    <div class="col-3">
+        <p>update the firstname and lastname on button click and auo refresh the ui</p>
+        <p>FullName- {{fullName()}}</p>
+        <button class="btn btn-primary m-2" (click)="changeFname()">change firstName</button>
+        <button class="btn btn-primary m-2" (click)="changeLname()">change lastName</button>
+    </div>
+    <div class="col-3">
+        <p>adding the new value inside signal array</p>
+        <p>{{cityList()}}</p>
+        <button class="btn btn-warning" (click)="addCity()">Add city</button>
+    </div>
+    <div class="col-3">
+        <p>update the signal object </p>
+        <p>{{studentObj().name}} - {{studentObj().city}}</p>
+        <button class="btn btn-danger" (click)="changeStudent()">Change Student</button>
+    </div>
+</div>

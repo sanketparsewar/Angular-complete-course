@@ -20,6 +20,9 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="app-lifecycle">Life Cycle Event</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="app-signal">Signal</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Directives
@@ -73,7 +76,7 @@
         </ul>
         <form class="d-flex my-2 my-lg-0 align-middle">
           <!-- <input class="form-control me-sm-2" [value]="" type="text" placeholder="Search" /> -->
-           <span class="align-bottom">{{loggedUser?.emailId}}</span>
+           <!-- <span class="align-bottom">{{loggedUser?.emailId}}</span> -->
           <button (click)="onLogOut()" class="btn btn-success my-2 my-sm-0" type="submit">
             LogOut
           </button>
